@@ -1,4 +1,4 @@
-# Bisaya AI (BAI) Chat App
+# Bisaya AI (BAI) Chat App Test
 
 A localized AI chatbot that replies in Bisaya with cultural flavor and fun personas.
 

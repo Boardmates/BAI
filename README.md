@@ -17,3 +17,18 @@ A localized AI chatbot that replies in Bisaya with cultural flavor and fun perso
 - Save chats and favorites  
 - Replies only in Bisaya  
 - Developer info database  
+
+## Folder Structure
+
+```bash
+BAI/
+│── apps/
+│   ├── bai-be/             # Backend - Django
+│   └── bai-fe/             # Frontend - Vue
+│
+│── .github/
+│   └── workflows/          # GitHub Actions CI/CD workflows
+│
+│── README.md               # Project documentation
+
+```

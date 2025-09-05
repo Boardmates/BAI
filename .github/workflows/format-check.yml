@@ -26,8 +26,8 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-        working-directory: ./bai-fe
+        working-directory: apps/bai-fe
 
       - name: Check formatting
         run: npm run format:check
-        working-directory: ./bai-fe
+        working-directory: apps/bai-fe

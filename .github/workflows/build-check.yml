@@ -26,12 +26,12 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-        working-directory: ./bai-fe
+        working-directory: apps/bai-fe
 
       - name: Run lint check
         run: npm run lint
-        working-directory: ./bai-fe
+        working-directory: apps/bai-fe
 
       - name: Build project
         run: npm run build
-        working-directory: ./bai-fe
+        working-directory: apps/bai-fe

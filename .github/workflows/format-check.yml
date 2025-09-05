@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - '**'
+    paths:
+      - 'apps/bai-fe/**'
   pull_request:
     branches:
       - '**'
@@ -20,9 +22,12 @@ jobs:
         with:
           node-version: '20'
           cache: 'npm'
+          cache-dependency-path: apps/bai-fe/package-lock.json
 
       - name: Install dependencies
         run: npm ci
+        working-directory: ./bai-fe
 
       - name: Check formatting
         run: npm run format:check
+        working-directory: ./bai-fe

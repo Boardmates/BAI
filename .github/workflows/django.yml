@@ -2,9 +2,13 @@ name: Django CI
 
 on:
   push:
-    branches: [ "staging" ]
+    branches: 
+        - '***' 
+    paths: 
+        - 'apps/bai-be/**'
   pull_request:
-    branches: [ "staging" ]
+    branches: 
+        - '***' 
 
 jobs:
   build:

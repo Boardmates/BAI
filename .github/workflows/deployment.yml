@@ -65,8 +65,12 @@ jobs:
       - name: Deploy backend with Zappa
         working-directory: apps/bai-be
         run: |
-          unset AWS_PROFILE
-          zappa update staging || zappa deploy staging
+         python -m venv venv
+         source venv/bin/activate
+         pip install -r requirements.txt
+         pip install zappa
+         unset AWS_PROFILE
+         zappa update staging
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}

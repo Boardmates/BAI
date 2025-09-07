@@ -9,7 +9,6 @@
             "s3transfer",
             "concurrent"
         ],
-        "profile_name": "bai-max",
         "project_name": "bai-be",
         "runtime": "python3.13",
         "s3_bucket": "bai-zappa-deployment"

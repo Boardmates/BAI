@@ -31,4 +31,4 @@ jobs:
         pip install -r apps/bai-be/requirements.txt
     - name: Run Tests
       run: |
-        python manage.py test
+        python apps/bai-be/manage.py test

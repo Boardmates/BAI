@@ -3,12 +3,12 @@ name: Deploy Vue Frontend
 on:
   push:
     branches:
-      - '**'
+      - 'staging'
     paths:
         - 'apps/bai-fe/**'
   pull_request:
     branches:
-      - '**'
+      - 'staging'
 
 jobs:
   deploy-frontend:

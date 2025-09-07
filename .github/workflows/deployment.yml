@@ -64,4 +64,10 @@ jobs:
 
       - name: Deploy backend with Zappa
         working-directory: apps/bai-be
-        run: zappa update staging || zappa deploy staging
+        run: |
+          export AWS_PROFILE=""
+          zappa update staging || zappa deploy staging
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: ap-southeast-1

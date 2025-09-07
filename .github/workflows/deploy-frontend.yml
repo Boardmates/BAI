@@ -1,0 +1,46 @@
+name: Deploy Vue Frontend
+
+on:
+  push:
+    branches:
+      - '**'
+    paths:
+        - 'apps/bai-fe/**'
+  pull_request:
+    branches:
+      - '**'
+
+jobs:
+  deploy-frontend:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.19
+
+      - name: Install frontend dependencies
+        working-directory: apps/bai-fe
+        run: npm ci
+
+      - name: Run frontend checks
+        working-directory: apps/bai-fe
+        run: |
+          npm run lint
+          npm run format:check
+
+      - name: Build frontend
+        working-directory: apps/bai-fe
+        run: npm run build
+
+      - name: Deploy frontend to Amplify
+        run: |
+          aws amplify start-job --app-id ${{ secrets.AMPLIFY_APP_ID }} --branch-name staging --job-type RELEASE
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: ap-southeast-1

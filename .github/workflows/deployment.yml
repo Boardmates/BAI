@@ -3,7 +3,10 @@ name: Deploy Vue + Django
 on:
   push:
     branches:
-      - staging
+      - '**'
+  pull_request:
+    branches:
+      - '**'
 
 jobs:
   build-and-deploy:

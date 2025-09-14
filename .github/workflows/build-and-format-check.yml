@@ -1,0 +1,58 @@
+name: Build and Format Check
+
+on:
+  push:
+    branches:
+      - '**'
+    paths:
+      - 'apps/bai-fe/**'
+  pull_request:
+    branches:
+      - '**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: apps/bai-fe/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+        working-directory: apps/bai-fe
+
+      - name: Run lint check
+        run: npm run lint
+        working-directory: apps/bai-fe
+
+      - name: Build project
+        run: npm run build
+        working-directory: apps/bai-fe
+
+  format:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: apps/bai-fe/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+        working-directory: apps/bai-fe
+
+      - name: Check formatting
+        run: npm run format:check
+        working-directory: apps/bai-fe

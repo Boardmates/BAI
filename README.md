@@ -1,6 +1,6 @@
 # Bisaya AI (BAI) Chat App
 
-A localized AI chatbot that replies in Bisaya with cultural flavor and fun personas.
+A localized AI chatbot that replies in Bisaya with cultural flavor and fun personas
 
 ## Pages
 - **Login Page** – User authentication and app entry  
